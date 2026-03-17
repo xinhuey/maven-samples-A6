@@ -1,9 +1,5 @@
 pipeline {
   agent any
-  tools { 
-      maven 'maven1' 
-      jdk 'Java_25' 
-  }
   stages {
     stage('check out') {
       steps {
@@ -26,6 +22,10 @@ pipeline {
         bat 'mvn verify'
       }
     }
+
+  }
+  tools {
+    maven 'maven1'
+    jdk 'Java_25'
   }
 }
-
