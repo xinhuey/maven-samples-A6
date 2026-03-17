@@ -16,14 +16,14 @@ pipeline {
         bat 'git bisect start'
         bat 'git bisect bad 1986446'
         bat 'git bisect good 98ac319'
-        bat 'git bisect run mvn clean test -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
+        bat 'git bisect run mvn clean test -Dmaven.compiler.source=8 -Dmaven.compiler.target=8 -Dmaven.compiler.release=8'
         bat 'git bisect reset'
       }
     }
 
     stage('run') {
       steps {
-        bat 'mvn verify -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
+        bat 'mvn verify -Dmaven.compiler.source=8 -Dmaven.compiler.target=8 -Dmaven.compiler.release=8'
       }
     }
 
